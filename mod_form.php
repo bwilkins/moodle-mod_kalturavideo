@@ -35,6 +35,7 @@ class mod_kalturavideo_mod_form extends moodleform_mod {
         global $CFG, $DB, $PAGE;
         $PAGE->requires->js('/local/kaltura/js/kaltura-edit.js');
         $PAGE->requires->js('/local/kaltura/js/kaltura-play.js');
+        $PAGE->requires->css('/local/kaltura/styles.css');
 
         $mform = $this->_form;
 
@@ -55,16 +56,9 @@ class mod_kalturavideo_mod_form extends moodleform_mod {
         $mform->addElement('header', 'content', get_string('contentheader', 'kalturavideo'));
         $mform->addElement('hidden', 'kalturavideo','');
 
-        //$mform->addElement('hidden','videotype', '');
-
-        //nasty indentation hack....
-        $mform->addElement('html','<div style="margin-left:16%;">');
         $mform->addElement('html','<div class="kalturaPlayerEdit"></div>');
 
         $mform->addElement('submit', 'replacevideo', get_string('replacevideo', 'kalturavideo'));
-
-        //end nasty indentation hack
-        $mform->addElement('html','</div>');
 
         $kalturaConfig = array();
         $kalturaConfig['cmid'] = optional_param('update',0,PARAM_INT);
