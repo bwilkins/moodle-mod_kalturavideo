@@ -49,6 +49,7 @@ $completion->set_module_viewed($cm);
 $PAGE->set_url('/mod/kalturavideo/view.php', array('id' => $cm->id));
 $PAGE->set_title(get_string('modulename','kalturavideo').': '.$entry->name);
 $PAGE->requires->js('/local/kaltura/js/kaltura-play.js');
+$PAGE->requires->css('/local/kaltura/styles.css');
 
 echo $OUTPUT->header();
 
