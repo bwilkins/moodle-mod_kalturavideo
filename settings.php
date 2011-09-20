@@ -32,14 +32,6 @@ if ($ADMIN->fulltree) {
     //--- general settings -----------------------------------------------------------------------------------
     $settings->add(new admin_setting_configcheckbox('kalturavideo/requiremodintro',
         get_string('requiremodintro', 'admin'), get_string('configrequiremodintro', 'admin'), 0));
-    $settings->add(new admin_setting_configselect('kalturavideo/player_theme',
-        get_string('playertheme','kalturavideo'), get_string('playerthemeexplain','kalturavideo'),
-        'light',
-        array('light'=> get_string('light', 'kalturavideo'), 'dark'=>get_string('dark','kalturavideo'))));
-    $settings->add(new admin_setting_configselect('kalturavideo/editor_theme',
-        get_string('editortheme','kalturavideo'), get_string('editorthemeexplain','kalturavideo'),
-        'light',
-        array('light'=> get_string('light', 'kalturavideo'), 'dark'=>get_string('dark','kalturavideo'))));
 
     //--- modedit defaults -----------------------------------------------------------------------------------
     $settings->add(new admin_setting_heading('kalturavideomodeditdefaults', get_string('modeditdefaults', 'admin'), get_string('condifmodeditdefaults', 'admin')));

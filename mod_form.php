@@ -56,12 +56,24 @@ class mod_kalturavideo_mod_form extends moodleform_mod {
         $mform->addElement('header', 'content', get_string('contentheader', 'kalturavideo'));
         $mform->addElement('hidden', 'kalturavideo','');
 
+        $ids = explode(',', get_config('local_kaltura', 'player_selections'));
+        list($sql, $params) = $DB->get_in_or_equal($ids);
+        $records = $DB->get_records_select('kalturaplayers' ,'id '.$sql, $params, '', 'id, name');
+
+        $playeroptions = array();
+        foreach ($records as $record) {
+            $playeroptions[$record->id] = $record->name;
+        }
+
+        $mform->addElement('select', 'kaltura_player', get_string('kalturaplayer', 'kalturavideo'), $playeroptions);
+
         $mform->addElement('html','<div class="kalturaPlayerEdit"></div>');
 
         $mform->addElement('submit', 'replacevideo', get_string('replacevideo', 'kalturavideo'));
 
         $kalturaConfig = array();
         $kalturaConfig['cmid'] = optional_param('update',0,PARAM_INT);
+        $kalturaConfig['enable_shared'] = 1;
 
         $updateJS = kalturaGlobals_js($kalturaConfig);
         $mform->addElement('html',$updateJS);

@@ -15,6 +15,7 @@ $string['replacevideo'] = 'Add/Replace Media';
 $string['replaceeditvideo'] = 'Add/Replace Editable Video';
 $string['pluginadministration'] = 'Kaltura Video Admin';
 
+$string['kalturaplayer'] = 'Kaltura Player Skin';
 $string['kalturaentrytype'] = 'Entry Type';
 $string['automatic'] = 'Automatic';
 $string['mediaclip'] = 'Media';
